@@ -5,7 +5,9 @@ var express = require('express');
 
 const app = express();
 const cors = require("cors")
-const kochRouter=require("./routes/cookRouter")
+
+const cookRouter=require("./routes/cookRouter")
+const verbindeDB = require("./mongo-db");
 verbindeDB()
 
 
@@ -14,7 +16,7 @@ app.use(cors());
 
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/cook",kochRouter)
+app.use("/cook",cookRouter)
 
 app.use(express.static('uploads'))
 app.use(express.static('public'))
@@ -31,5 +33,5 @@ app.get('*', (req,res, next) =>{
   
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => { console.log("Läuft auf Port" + port) })
+app.listen(port, () => { console.log("connnect!" + port) })
 
