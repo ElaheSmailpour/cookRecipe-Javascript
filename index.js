@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/koch",kochRouter)
+app.use("/cook",kochRouter)
 
 app.use(express.static('uploads'))
 app.use(express.static('public'))
